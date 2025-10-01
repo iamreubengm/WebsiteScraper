@@ -1,0 +1,13 @@
+requests
+beautifulsoup4
+readability-lxml
+html5lib
+lxml
+pdfplumber
+pypdf
+python-dateutil
+dateparser
+tqdm
+numpy
+scikit-learn
+pyyaml

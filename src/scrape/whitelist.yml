@@ -1,0 +1,65 @@
+# Only crawl these domains and descendant paths.
+allowed_domains:
+  - en.wikipedia.org
+  - www.visitpittsburgh.com
+  - www.pittsburghpa.gov
+  - www.britannica.com
+  - www.cmu.edu
+  - www.trustarts.org
+  - www.pittsburghsymphony.org
+  - www.pittsburghopera.org
+  - www.heinzhistorycenter.org
+  - www.carnegiemuseums.org
+  - thefrickpittsburgh.org
+  - www.pittsburghcitypaper.com
+  - downtownpittsburgh.com
+  - www.ppgpaintsarena.com
+  - www.pittsburghrestaurantweek.com
+  - picklesburgh.com
+  - www.pghtacofest.com
+  - littleitalydays.com
+  - bananasplitfest.com
+  - www.steelers.com
+  - www.mlb.com/pirates
+  - www.nhl.com/penguins
+
+seed_urls:
+  # History / general
+  - https://en.wikipedia.org/wiki/Pittsburgh
+  - https://en.wikipedia.org/wiki/History_of_Pittsburgh
+  - https://www.pittsburghpa.gov/
+  - https://www.britannica.com/place/Pittsburgh
+  - https://www.visitpittsburgh.com/
+  - https://www.cmu.edu/about/history/
+
+  # Events hubs (will filter by date downstream)
+  - https://www.visitpittsburgh.com/events/
+  - https://downtownpittsburgh.com/events/
+  - https://www.pittsburghcitypaper.com/pittsburgh/EventSearch
+  - https://www.cmu.edu/events/
+
+  # Culture/museums
+  - https://www.trustarts.org/
+  - https://www.pittsburghsymphony.org/
+  - https://www.pittsburghopera.org/
+  - https://www.heinzhistorycenter.org/
+  - https://www.carnegiemuseums.org/
+  - https://www.thefrickpittsburgh.org/
+
+  # Food festivals
+  - https://www.visitpittsburgh.com/events/festivals/
+  - https://www.pittsburghrestaurantweek.com/
+  - https://www.picklesburgh.com/
+  - https://www.pghtacofest.com/
+  - https://littleitalydays.com/
+  - https://bananasplitfest.com/
+
+  # Sports basics
+  - https://www.steelers.com/
+  - https://www.mlb.com/pirates
+  - https://www.nhl.com/penguins
+
+# Limit crawl depth to control scope
+max_depth: 1
+# Respect robots; throttle requests per host
+delay_seconds: 0.5
