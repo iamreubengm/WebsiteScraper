@@ -87,7 +87,8 @@ def main():
             doc_id = (doc.get("doc_id") or "doc").replace("sha1:", "")
             fname = slugify(doc_id) + ".txt"
             out_path = by_doc_dir / fname
-            out_path.write_text(txt, encoding="utf-8", newline="\n")
+            txt = txt.replace("\r\n", "\n").replace("\r", "\n")
+            out_path.write_text(txt, encoding="utf-8")
 
             # Add to big corpus with a readable header
             header = f'<<<DOC id="{doc.get("doc_id","")}" url="{doc.get("source_url","")}" title="{(doc.get("title") or "").replace(chr(34), "")}">>>'
@@ -105,12 +106,17 @@ def main():
             kept += 1
 
     # Write combined corpus + manifest
-    (outdir / "corpus.txt").write_text(SEP.join(corpus_lines), encoding="utf-8", newline="\n")
-    (outdir / "manifest.tsv").write_text(
-        "filename\tdoc_id\tsource_url\ttitle\tchars\n" + "\n".join(manifest_rows),
-        encoding="utf-8",
-        newline="\n"
+    # corpus.txt
+    corpus_text = SEP.join(corpus_lines).replace("\r\n", "\n").replace("\r", "\n")
+    (outdir / "corpus.txt").write_text(corpus_text, encoding="utf-8")
+
+    # manifest.tsv
+    manifest_text = (
+        "filename\tdoc_id\tsource_url\ttitle\tchars\n" + "\n".join(manifest_rows)
     )
+    manifest_text = manifest_text.replace("\r\n", "\n").replace("\r", "\n")
+    (outdir / "manifest.tsv").write_text(manifest_text, encoding="utf-8")
+
 
     print(f"[export_text] processed={total} kept={kept} -> {outdir}")
     print(f"[export_text] per-doc: {by_doc_dir}")

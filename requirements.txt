@@ -11,3 +11,6 @@ tqdm
 numpy
 scikit-learn
 pyyaml
+faiss-cpu
+sentence-transformers
+rank-bm25
