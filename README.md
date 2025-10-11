@@ -1,4 +1,4 @@
-# WebsiteScraper
+ANLP RAG Assignment
 
 Steps:
 ```python -m src.scrape.crawl
