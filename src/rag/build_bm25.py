@@ -1,4 +1,3 @@
-# rag_src/build_bm25.py
 import json, pickle
 from rank_bm25 import BM25Okapi
 from tqdm import tqdm
@@ -18,4 +17,4 @@ bm25 = BM25Okapi(docs)
 with open(BM25_FILE, "wb") as f:
     pickle.dump({"bm25": bm25, "ids": ids}, f)
 
-print(f"✅ BM25 index built for {len(ids)} chunks.")
+print(f"BM25 index built for {len(ids)} chunks.")

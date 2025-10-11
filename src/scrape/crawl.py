@@ -1,4 +1,3 @@
-# src/scrape/crawl.py
 import os, re, time, hashlib, json, csv
 from urllib.parse import urljoin, urlparse
 from datetime import datetime, timezone

@@ -1,4 +1,3 @@
-# src/scrape/parse_pdf.py
 import pdfplumber, json, os, glob
 from datetime import datetime, timezone
 

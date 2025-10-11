@@ -1,11 +1,10 @@
-# src/preprocess/clean.py
 import os, csv, json, re
 from bs4 import BeautifulSoup
 from readability import Document as ReadabilityDoc
 from dateutil import parser as dtparser
 from dateparser.search import search_dates
 from urllib.parse import urlparse
-from tqdm import tqdm   # ✅ added tqdm
+from tqdm import tqdm
 
 RAW_DIR = "data_raw"
 OUT_PATH = "data_clean/documents.jsonl"
@@ -97,7 +96,7 @@ def main():
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     count = 0
     with open(OUT_PATH, "w", encoding="utf-8") as out:
-        # ✅ add tqdm around domains
+        # add tqdm around domains
         for domain in tqdm(os.listdir(RAW_DIR), desc="Domains", unit="domain"):
             docs = process_html_domain(domain)
             for d in docs:

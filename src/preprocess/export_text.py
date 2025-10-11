@@ -1,18 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Export plain text from documents.jsonl/documents.dedup.jsonl.
-
-Outputs:
-- data_clean/text_corpus/by_doc/<safe_doc_id>.txt   (one file per doc)
-- data_clean/text_corpus/corpus.txt                 (all docs concatenated)
-- data_clean/text_corpus/manifest.tsv               (index for auditing)
-
-Usage:
-  python -m src.preprocess.export_text \
-      --in data_clean/documents.dedup.jsonl \
-      --outdir data_clean/text_corpus \
-      --min_chars 100
-"""
 import os, re, json, argparse
 from pathlib import Path
 

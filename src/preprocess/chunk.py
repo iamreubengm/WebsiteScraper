@@ -1,4 +1,3 @@
-# src/chunk_texts.py
 import os
 import json
 from nltk import sent_tokenize
@@ -7,7 +6,7 @@ from tqdm import tqdm
 INPUT_DIR = "data_clean/text_corpus/by_doc"
 OUTPUT_FILE = "data/chunks.jsonl"
 
-CHUNK_SIZE = 300  # approx tokens (~words)
+CHUNK_SIZE = 300
 CHUNK_OVERLAP = 50
 
 
@@ -32,7 +31,7 @@ def chunk_text(sentences, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
 
 
 def main():
-    # ✅ Ensure output directory exists
+    # Ensure output directory exists
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 
     txt_files = [f for f in os.listdir(INPUT_DIR) if f.endswith(".txt")]
@@ -54,7 +53,7 @@ def main():
                 }
                 out.write(json.dumps(rec) + "\n")
 
-    print(f"\n✅ Done! Wrote chunks for {len(txt_files)} documents to {OUTPUT_FILE}")
+    print(f"\nWrote chunks for {len(txt_files)} documents to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
